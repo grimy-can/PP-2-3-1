@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пользователь</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/create}" th:object="${user}">
+    <div>
+        <input type="text" name="name" placeholder="Имя">
+    </div>
+    <div>
+        <input type="text" name="lastName" placeholder="Фамилия">
+    </div>
+    <div>
+        <input type="text" name="age" placeholder="Возраст">
+    </div>
+    <div>
+        <input type="text" name="alias" placeholder="Псевдоним">
+    </div>
+    <div>
+        <input type="text" name="occupation" placeholder="Род занятий">
+    </div>
+    <div>
+        <label>В живых: </label>
+        <input type="checkbox" th:field="*{isAlive}" id="isAlive">
+    </div>
+    <br>
+    <hr><input type="submit" value="Сохранить">
+</form>
+<hr>
+<a href="/users">
+    <button class="button">Отмена</button>
+</a>
+</body>
+</html>

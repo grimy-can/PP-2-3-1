@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<body style="background-color: #1C1C1C;">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+    <span style="color: #E0FFFF">
+        <h4><p th:text="'Имя: ' + ${user.getName()}">VALUE</p></h4>
+        <h4><p th:text="'Фамилия: ' + ${user.getLastName()}">VALUE</p></h4>
+        <h4><p th:text="'Возраст: ' + ${user.getAge()}">VALUE</p></h4>
+        <h4><p th:text="'Псевдоним: ' + ${user.getAlias()}">VALUE</p></h4>
+        <h4><p th:text="'Род занятий: ' + ${user.getOccupation()}">VALUE</p></h4>
+        <h4><p th:text="'В живых: ' + ${user.getIsAlive()}">VALUE</p></h4>
+        <hr>
+        <form th:action="@{/users}" th:method="GET">
+        <input type="submit" value="Назад" />
+        </form>
+    </span>
+</body>
+</html>
