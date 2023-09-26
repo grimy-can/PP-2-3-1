@@ -37,13 +37,13 @@ public class UsersController {
     }
 
     @GetMapping("/new")
-    public String newUser(Model model) {
+    public String createUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
 
     @PostMapping("/create")
-    public String createUser(@ModelAttribute("user") User user) {
+    public String addUser(@ModelAttribute("user") User user) {
         service.addUser(user);
         return "redirect:/users";
     }
