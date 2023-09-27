@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserDaoImpl implements UserDao {
 
     private static final Logger logger = Logger.getLogger(UserDaoImpl.class.getName());
@@ -46,27 +47,25 @@ public class UserDaoImpl implements UserDao {
         logger.info("updated user: " + user.getAlias());
     }
 
-    @Transactional(readOnly = true)
     @Override
     public User getUser(long id) {
         Query query = entityManager.createQuery("from User u WHERE u.id=:id");
         query.setParameter("id", id);
         User user = (User) query.getSingleResult();
+
         logger.info("user info: " + user.getAlias());
         return user;
     }
-
 
     @Transactional
     @Override
     public void deleteUser(long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
-        logger.info("deleted: " + user.getAlias());
 
+        logger.info("deleted: " + user.getAlias());
     }
 
-    @Transactional
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsers(String number) {
@@ -75,6 +74,7 @@ public class UserDaoImpl implements UserDao {
         if (number != null) {
             counter = Integer.parseInt(number);
         }
+
         logger.info("founded: " + list.size());
         return list.stream().limit(counter).collect(Collectors.toList());
     }

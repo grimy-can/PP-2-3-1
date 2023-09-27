@@ -1,6 +1,5 @@
 package ppcrud.service;
 
-
 import ppcrud.dao.UserDao;
 import ppcrud.model.User;
 import java.util.List;

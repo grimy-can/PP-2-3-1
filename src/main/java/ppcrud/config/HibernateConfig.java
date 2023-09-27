@@ -10,11 +10,11 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
+
 
 @Configuration
 @EnableWebMvc

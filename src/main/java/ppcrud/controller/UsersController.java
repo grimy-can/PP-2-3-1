@@ -19,19 +19,19 @@ public class UsersController {
     private UserService service;
 
     @GetMapping(value = "/")
-    public String printTask() {
+    public String getIndex() {
         return "index";
     }
 
     @GetMapping(value = "/users")
-    public String printUsers(ModelMap model,  @RequestParam(value = "count", required = false) String number) {
+    public String getUsers(ModelMap model,  @RequestParam(value = "count", required = false) String number) {
         List<User> list = service.getUsers(number);
         model.addAttribute("users", list);
         return "users";
     }
 
     @GetMapping("/user")
-    public String showUser(@RequestParam(value = "id") String id, Model model) {
+    public String getUser(@RequestParam(value = "id") String id, Model model) {
         model.addAttribute("user", service.getUser(Long.parseLong(id)));
         return "show";
     }
