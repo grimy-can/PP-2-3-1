@@ -7,19 +7,19 @@
 <body>
 <form th:method="POST" th:action="@{/create}" th:object="${user}">
     <div>
-        <input type="text" name="name" placeholder="Имя">
+        <input type="text" name="name" placeholder="Имя" th:required="required">
     </div>
     <div>
-        <input type="text" name="lastName" placeholder="Фамилия">
+        <input type="text" name="lastName" placeholder="Фамилия" th:required="required">
     </div>
     <div>
-        <input type="text" name="age" placeholder="Возраст">
+        <input type="text" name="age" placeholder="Возраст" th:required="required">
     </div>
     <div>
-        <input type="text" name="alias" placeholder="Псевдоним">
+        <input type="text" name="alias" placeholder="Псевдоним" th:required="required">
     </div>
     <div>
-        <input type="text" name="occupation" placeholder="Род занятий">
+        <input type="text" name="occupation" placeholder="Род занятий" th:required="required">
     </div>
     <div>
         <label>В живых: </label>
