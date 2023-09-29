@@ -37,7 +37,7 @@ public class UsersController {
     }
 
     @GetMapping("/new")
-    public String getNew(Model model) {
+    public String getNewUserPage(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -50,7 +50,7 @@ public class UsersController {
 
     @PostMapping("/edit_user")
 
-    public String getEdit(@RequestParam(value = "id") String id, Model model) {
+    public String getEditUserPage(@RequestParam(value = "id") String id, Model model) {
         model.addAttribute("user", service.getUser(Long.parseLong(id)));
         return "edit";
     }
